@@ -10,6 +10,7 @@
 #import "CCSprite.h"
 #import "CCDirector.h"
 #import "GameHero.h"
+#import "GameBomb.h"
 
 @implementation GameController {
 
@@ -77,6 +78,13 @@
     if (touchpos.x==14.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
     {
         // bomb
+        CGPoint pos=self.hero.position;
+        pos=[self convertToTilePos:pos];
+        
+        GameBomb *bomb  = [GameBomb node];
+        [bomb setPosition: pos];
+        
+        [self addChild:bomb];
     }
 }
 

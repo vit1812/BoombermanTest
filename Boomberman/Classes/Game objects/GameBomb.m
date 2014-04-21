@@ -16,7 +16,9 @@
 - (id)init {
     CCSpriteFrame *spriteFrame=[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bomb.png"];
     
-    if ([self initWithSpriteFrame:spriteFrame])
+    self    = [super initWithSpriteFrame:spriteFrame];
+    
+    if (self)
     {
 
     }
