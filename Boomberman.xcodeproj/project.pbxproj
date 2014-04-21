@@ -210,7 +210,7 @@
 		4C7AC4731904BAC10000D665 /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC4721904BAC10000D665 /* LICENSE_Chipmunk.txt */; };
 		4C7AC4771904BAC10000D665 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4761904BAC10000D665 /* main.m */; };
 		4C7AC47B1904BAC10000D665 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC47A1904BAC10000D665 /* AppDelegate.m */; };
-		4C7AC47E1904BAC10000D665 /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC47D1904BAC10000D665 /* HelloWorldScene.m */; };
+		4C7AC47E1904BAC10000D665 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC47D1904BAC10000D665 /* MainScene.m */; };
 		4C7AC4811904BAC10000D665 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4801904BAC10000D665 /* IntroScene.m */; };
 		4C7AC4A11904BC670000D665 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC48C1904BC670000D665 /* background.png */; };
 		4C7AC4A21904BC670000D665 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC48D1904BC670000D665 /* board.png */; };
@@ -232,6 +232,13 @@
 		4C7AC4B21904BC670000D665 /* baozha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC49E1904BC670000D665 /* baozha.mp3 */; };
 		4C7AC4B31904BC670000D665 /* chaojimali.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC49F1904BC670000D665 /* chaojimali.m4a */; };
 		4C7AC4B41904BC670000D665 /* dingshi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC4A01904BC670000D665 /* dingshi.mp3 */; };
+		4C7AC4C81904CCAA0000D665 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4C21904CCAA0000D665 /* GameController.m */; };
+		4C7AC4C91904CCAA0000D665 /* GameHero.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4C41904CCAA0000D665 /* GameHero.m */; };
+		4C7AC4CA1904CCAA0000D665 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4C71904CCAA0000D665 /* Constant.m */; };
+		4C7AC4CD1904D25F0000D665 /* GameEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4CC1904D25F0000D665 /* GameEnemy.m */; };
+		4C7AC4D01904F9FD0000D665 /* GameBomb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4CF1904F9FD0000D665 /* GameBomb.m */; };
+		4C7AC4D31904FA1F0000D665 /* GameShitou.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4D21904FA1F0000D665 /* GameShitou.m */; };
+		4C7AC4D61904FE0A0000D665 /* GameZhuankuai.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC4D51904FE0A0000D665 /* GameZhuankuai.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -669,8 +676,8 @@
 		4C7AC4761904BAC10000D665 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		4C7AC4791904BAC10000D665 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		4C7AC47A1904BAC10000D665 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		4C7AC47C1904BAC10000D665 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		4C7AC47D1904BAC10000D665 /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
+		4C7AC47C1904BAC10000D665 /* MainScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = Classes/MainScene.h; sourceTree = "<group>"; };
+		4C7AC47D1904BAC10000D665 /* MainScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainScene.m; path = Classes/MainScene.m; sourceTree = "<group>"; };
 		4C7AC47F1904BAC10000D665 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		4C7AC4801904BAC10000D665 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
 		4C7AC48C1904BC670000D665 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -693,6 +700,20 @@
 		4C7AC49E1904BC670000D665 /* baozha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = baozha.mp3; sourceTree = "<group>"; };
 		4C7AC49F1904BC670000D665 /* chaojimali.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = chaojimali.m4a; sourceTree = "<group>"; };
 		4C7AC4A01904BC670000D665 /* dingshi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dingshi.mp3; sourceTree = "<group>"; };
+		4C7AC4C11904CCAA0000D665 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		4C7AC4C21904CCAA0000D665 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		4C7AC4C31904CCAA0000D665 /* GameHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHero.h; sourceTree = "<group>"; };
+		4C7AC4C41904CCAA0000D665 /* GameHero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHero.m; sourceTree = "<group>"; };
+		4C7AC4C61904CCAA0000D665 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		4C7AC4C71904CCAA0000D665 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		4C7AC4CB1904D25F0000D665 /* GameEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEnemy.h; sourceTree = "<group>"; };
+		4C7AC4CC1904D25F0000D665 /* GameEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEnemy.m; sourceTree = "<group>"; };
+		4C7AC4CE1904F9FD0000D665 /* GameBomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBomb.h; sourceTree = "<group>"; };
+		4C7AC4CF1904F9FD0000D665 /* GameBomb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBomb.m; sourceTree = "<group>"; };
+		4C7AC4D11904FA1F0000D665 /* GameShitou.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameShitou.h; sourceTree = "<group>"; };
+		4C7AC4D21904FA1F0000D665 /* GameShitou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameShitou.m; sourceTree = "<group>"; };
+		4C7AC4D41904FE0A0000D665 /* GameZhuankuai.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameZhuankuai.h; sourceTree = "<group>"; };
+		4C7AC4D51904FE0A0000D665 /* GameZhuankuai.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameZhuankuai.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1581,11 +1602,12 @@
 		4C7AC4781904BAC10000D665 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4C7AC4B51904BCB50000D665 /* Game objects */,
+				4C7AC4C01904CCAA0000D665 /* Game objects */,
+				4C7AC4C51904CCAA0000D665 /* Support */,
 				4C7AC4791904BAC10000D665 /* AppDelegate.h */,
 				4C7AC47A1904BAC10000D665 /* AppDelegate.m */,
-				4C7AC47C1904BAC10000D665 /* HelloWorldScene.h */,
-				4C7AC47D1904BAC10000D665 /* HelloWorldScene.m */,
+				4C7AC47C1904BAC10000D665 /* MainScene.h */,
+				4C7AC47D1904BAC10000D665 /* MainScene.m */,
 				4C7AC47F1904BAC10000D665 /* IntroScene.h */,
 				4C7AC4801904BAC10000D665 /* IntroScene.m */,
 			);
@@ -1635,11 +1657,34 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
-		4C7AC4B51904BCB50000D665 /* Game objects */ = {
+		4C7AC4C01904CCAA0000D665 /* Game objects */ = {
 			isa = PBXGroup;
 			children = (
+				4C7AC4C11904CCAA0000D665 /* GameController.h */,
+				4C7AC4C21904CCAA0000D665 /* GameController.m */,
+				4C7AC4C31904CCAA0000D665 /* GameHero.h */,
+				4C7AC4C41904CCAA0000D665 /* GameHero.m */,
+				4C7AC4CB1904D25F0000D665 /* GameEnemy.h */,
+				4C7AC4CC1904D25F0000D665 /* GameEnemy.m */,
+				4C7AC4CE1904F9FD0000D665 /* GameBomb.h */,
+				4C7AC4CF1904F9FD0000D665 /* GameBomb.m */,
+				4C7AC4D11904FA1F0000D665 /* GameShitou.h */,
+				4C7AC4D21904FA1F0000D665 /* GameShitou.m */,
+				4C7AC4D41904FE0A0000D665 /* GameZhuankuai.h */,
+				4C7AC4D51904FE0A0000D665 /* GameZhuankuai.m */,
 			);
 			name = "Game objects";
+			path = "Classes/Game objects";
+			sourceTree = "<group>";
+		};
+		4C7AC4C51904CCAA0000D665 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4C7AC4C61904CCAA0000D665 /* Constant.h */,
+				4C7AC4C71904CCAA0000D665 /* Constant.m */,
+			);
+			name = Support;
+			path = Classes/Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1765,6 +1810,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C7AC2801904BABF0000D665 /* CCParticleBatchNode.m in Sources */,
+				4C7AC4C91904CCAA0000D665 /* GameHero.m in Sources */,
 				4C7AC3F81904BAC10000D665 /* CCBReader.m in Sources */,
 				4C7AC3A81904BAC00000D665 /* CCButton.m in Sources */,
 				4C7AC3531904BAC00000D665 /* OALAudioActions.m in Sources */,
@@ -1778,6 +1824,7 @@
 				4C7AC3B21904BAC00000D665 /* CCScrollView.m in Sources */,
 				4C7AC2A51904BABF0000D665 /* CCResponder.m in Sources */,
 				4C7AC23C1904BABE0000D665 /* CCClippingNode.m in Sources */,
+				4C7AC4D61904FE0A0000D665 /* GameZhuankuai.m in Sources */,
 				4C7AC2CF1904BABF0000D665 /* CCSpriteBatchNode.m in Sources */,
 				4C7AC2F31904BABF0000D665 /* CCTransition.m in Sources */,
 				4C7AC2D21904BABF0000D665 /* CCSpriteFrame.m in Sources */,
@@ -1808,6 +1855,7 @@
 				4C7AC2601904BABF0000D665 /* CCLabelBMFont.m in Sources */,
 				4C7AC21E1904BABE0000D665 /* CCActionEase.m in Sources */,
 				4C7AC22D1904BABE0000D665 /* CCActionTween.m in Sources */,
+				4C7AC4C81904CCAA0000D665 /* GameController.m in Sources */,
 				4C7AC39B1904BAC00000D665 /* NSMutableDictionary+WeakReferences.m in Sources */,
 				4C7AC2781904BABF0000D665 /* CCNode+Debug.m in Sources */,
 				4C7AC2311904BABE0000D665 /* CCAnimation.m in Sources */,
@@ -1834,6 +1882,7 @@
 				4C7AC22A1904BABE0000D665 /* CCActionProgressTimer.m in Sources */,
 				4C7AC3E01904BAC00000D665 /* plane.c in Sources */,
 				4C7AC3631904BAC00000D665 /* OALSimpleAudio.m in Sources */,
+				4C7AC4CD1904D25F0000D665 /* GameEnemy.m in Sources */,
 				4C7AC2551904BABF0000D665 /* CCGLProgram.m in Sources */,
 				4C7AC4771904BAC10000D665 /* main.m in Sources */,
 				4C7AC38A1904BAC00000D665 /* OALAudioSession.m in Sources */,
@@ -1841,6 +1890,7 @@
 				4C7AC2ED1904BABF0000D665 /* CCTiledMapObjectGroup.m in Sources */,
 				4C7AC3EA1904BAC10000D665 /* vec3.c in Sources */,
 				4C7AC26D1904BABF0000D665 /* CCLayoutBox.m in Sources */,
+				4C7AC4D01904F9FD0000D665 /* GameBomb.m in Sources */,
 				4C7AC26A1904BABF0000D665 /* CCLayout.m in Sources */,
 				4C7AC38D1904BAC00000D665 /* OALSuspendHandler.m in Sources */,
 				4C7AC3EC1904BAC10000D665 /* vec4.c in Sources */,
@@ -1859,7 +1909,7 @@
 				4C7AC2C41904BABF0000D665 /* ccShaders.m in Sources */,
 				4C7AC3D81904BAC00000D665 /* matrix.c in Sources */,
 				4C7AC2EA1904BABF0000D665 /* CCTiledMapLayer.m in Sources */,
-				4C7AC47E1904BAC10000D665 /* HelloWorldScene.m in Sources */,
+				4C7AC47E1904BAC10000D665 /* MainScene.m in Sources */,
 				4C7AC3DE1904BAC00000D665 /* neon_matrix_impl.c in Sources */,
 				4C7AC2631904BABF0000D665 /* CCLabelTTF.m in Sources */,
 				4C7AC3181904BABF0000D665 /* NSEvent+CC.m in Sources */,
@@ -1880,10 +1930,12 @@
 				4C7AC3331904BAC00000D665 /* NSAttributedString+CCAdditions.m in Sources */,
 				4C7AC3F51904BAC10000D665 /* CCBKeyframe.m in Sources */,
 				4C7AC3AF1904BAC00000D665 /* CCControlTextureFactory.m in Sources */,
+				4C7AC4CA1904CCAA0000D665 /* Constant.m in Sources */,
 				4C7AC2341904BABE0000D665 /* CCAnimationCache.m in Sources */,
 				4C7AC3B81904BAC00000D665 /* CCTableView.m in Sources */,
 				4C7AC47B1904BAC10000D665 /* AppDelegate.m in Sources */,
 				4C7AC24B1904BABE0000D665 /* CCDrawingPrimitives.m in Sources */,
+				4C7AC4D31904FA1F0000D665 /* GameShitou.m in Sources */,
 				4C7AC33C1904BAC00000D665 /* TGAlib.m in Sources */,
 				4C7AC3081904BABF0000D665 /* UITouch+CC.m in Sources */,
 				4C7AC3E61904BAC00000D665 /* utility.c in Sources */,
@@ -2101,6 +2153,7 @@
 				4C7AC4861904BAC10000D665 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C7AC4871904BAC10000D665 /* Build configuration list for PBXNativeTarget "Boomberman" */ = {
 			isa = XCConfigurationList;
@@ -2109,6 +2162,7 @@
 				4C7AC4891904BAC10000D665 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

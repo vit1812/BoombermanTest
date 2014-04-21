@@ -16,11 +16,11 @@
 /**
  *  The main scene
  */
-@interface HelloWorldScene : CCScene
+@interface MainScene : CCScene <CCPhysicsCollisionDelegate>
 
 // -----------------------------------------------------------------------
 
-+ (HelloWorldScene *)scene;
++ (MainScene *)scene;
 - (id)init;
 
 // -----------------------------------------------------------------------
