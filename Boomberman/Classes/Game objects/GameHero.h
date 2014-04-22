@@ -11,13 +11,17 @@
 @interface GameHero : CCSprite
 
 @property (nonatomic, assign) float speed;
+@property (nonatomic, assign) kHeroAct kAct;
+@property(nonatomic) NSMutableArray *tileArray; 
 
 - (GameHero *)init;
 
--(void) MoveUp;
--(void) MoveLeft;
--(void) MoveRight;
--(void) MoveDown;
--(void) changWithSpriteFile:(NSString *)fileName;
+- (void) putBomb;
+- (void) MoveUp;
+- (void) MoveLeft;
+- (void) MoveRight;
+- (void) MoveDown;
+- (void) OnStay;
+- (void) changWithSpriteFile:(NSString *)fileName;
 
 @end

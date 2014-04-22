@@ -8,6 +8,7 @@
 
 #import "GameShitou.h"
 #import "CCSpriteFrameCache.h"
+#import "CCPhysicsBody.h"
 
 @implementation GameShitou
 
@@ -16,9 +17,13 @@
 - (id)init {
     CCSpriteFrame *spriteFrame=[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"shitou.png"];
     
-    if ([self initWithSpriteFrame:spriteFrame])
+    self    = [super initWithSpriteFrame:spriteFrame];
+    
+    if (self)
     {
-        
+        self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, self.contentSize} cornerRadius:0]; // 1
+        self.physicsBody.collisionGroup = @"shitouGroup"; // 2
+        self.physicsBody.collisionType  = @"shitouCollision";
     }
     
     return self;

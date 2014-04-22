@@ -20,6 +20,8 @@
 
 // -----------------------------------------------------------------------
 
+@property (nonatomic, assign) int iEnemyNum;
+
 + (MainScene *)scene;
 - (id)init;
 

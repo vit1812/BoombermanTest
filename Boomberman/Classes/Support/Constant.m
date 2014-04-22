@@ -10,4 +10,9 @@
 
 @implementation Constant
 
+#pragma mark - notification
+
+NSString* const  NotifyForMainScene  = @"NotifyForMainScene";
+NSString* const  NotifyForGameController  = @"NotifyForGameController";
+
 @end

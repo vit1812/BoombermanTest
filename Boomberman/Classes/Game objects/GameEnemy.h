@@ -8,6 +8,19 @@
 
 #import "CCSprite.h"
 
-@interface GameEnemy : CCSprite
+typedef enum
+{
+    kEnemyActHorizon,
+    kEnemyActVertical
+    
+}kEnemyAct;
+
+@interface GameEnemy : CCSprite {
+
+}
+
+@property(nonatomic, assign) kEnemyAct kAct;
+@property(nonatomic, assign) float fSpeed;
+@property(nonatomic) NSMutableArray *tileArray; 
 
 @end

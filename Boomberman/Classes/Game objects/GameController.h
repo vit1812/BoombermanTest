@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) GameHero *hero;
 
+-(void) gameOver;
+
 @end

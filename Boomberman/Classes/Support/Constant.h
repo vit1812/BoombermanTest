@@ -15,4 +15,28 @@
 #define SCENE_WIDTH 416
 #define SCENE_HEIGHT 288
 
+#define NANDU   1
+
+#pragma mark - hero
+
+typedef enum {
+	kHeroActUp,
+	kHeroActLeft,
+	kHeroActRight,
+	kHeroActDown,
+    kHeroActStay,
+	kHeroActFire
+} kHeroAct;
+
+#pragma mark - notification
+
+extern NSString* const NotifyForMainScene;
+extern NSString* const NotifyForGameController;
+
+typedef enum {
+    kNotificationMessageTypeUndifine,
+    kNotificationMessageTypeBombDownEffect,
+    kNotificationMessageTypeGameeOver
+} kNotificationMessageType;
+
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C7810901905FAF9004FE219 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C78108F1905FAF9004FE219 /* Utils.m */; };
+		4C78109F19065E75004FE219 /* NotificationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C78109E19065E75004FE219 /* NotificationObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C7AC1D21904BABE0000D665 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7AC1D11904BABE0000D665 /* QuartzCore.framework */; };
 		4C7AC1D41904BABE0000D665 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7AC1D31904BABE0000D665 /* OpenGLES.framework */; };
 		4C7AC1D61904BABE0000D665 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7AC1D51904BABE0000D665 /* OpenAL.framework */; };
@@ -252,6 +254,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C78108E1905FAF9004FE219 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		4C78108F1905FAF9004FE219 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		4C78109D19065E75004FE219 /* NotificationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationObject.h; sourceTree = "<group>"; };
+		4C78109E19065E75004FE219 /* NotificationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationObject.m; sourceTree = "<group>"; };
 		4C7AC1CE1904BABE0000D665 /* Boomberman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boomberman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7AC1D11904BABE0000D665 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4C7AC1D31904BABE0000D665 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1680,8 +1686,12 @@
 		4C7AC4C51904CCAA0000D665 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				4C78109D19065E75004FE219 /* NotificationObject.h */,
+				4C78109E19065E75004FE219 /* NotificationObject.m */,
 				4C7AC4C61904CCAA0000D665 /* Constant.h */,
 				4C7AC4C71904CCAA0000D665 /* Constant.m */,
+				4C78108E1905FAF9004FE219 /* Utils.h */,
+				4C78108F1905FAF9004FE219 /* Utils.m */,
 			);
 			name = Support;
 			path = Classes/Support;
@@ -1856,6 +1866,8 @@
 				4C7AC21E1904BABE0000D665 /* CCActionEase.m in Sources */,
 				4C7AC22D1904BABE0000D665 /* CCActionTween.m in Sources */,
 				4C7AC4C81904CCAA0000D665 /* GameController.m in Sources */,
+				4C7810901905FAF9004FE219 /* Utils.m in Sources */,
+				4C78109F19065E75004FE219 /* NotificationObject.m in Sources */,
 				4C7AC39B1904BAC00000D665 /* NSMutableDictionary+WeakReferences.m in Sources */,
 				4C7AC2781904BABF0000D665 /* CCNode+Debug.m in Sources */,
 				4C7AC2311904BABE0000D665 /* CCAnimation.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "GameZhuankuai.h"
 #import "CCSpriteFrameCache.h"
+#import "CCPhysicsBody.h"
 
 @implementation GameZhuankuai
 
@@ -16,9 +17,13 @@
 - (id)init {
     CCSpriteFrame *spriteFrame=[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"zhuankuai.png"];
     
-    if ([self initWithSpriteFrame:spriteFrame])
+    self    = [super initWithSpriteFrame:spriteFrame];
+    
+    if (self)
     {
-        
+        self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, self.contentSize} cornerRadius:0]; // 1
+        self.physicsBody.collisionGroup = @"zhuankuaiGroup"; // 2
+        self.physicsBody.collisionType  = @"zhuankuaiCollision";
     }
     
     return self;
