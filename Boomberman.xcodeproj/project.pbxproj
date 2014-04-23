@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1F485C19075985008FF3F5 /* GameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F485B19075985008FF3F5 /* GameInfo.m */; };
 		4C7810901905FAF9004FE219 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C78108F1905FAF9004FE219 /* Utils.m */; };
 		4C78109F19065E75004FE219 /* NotificationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C78109E19065E75004FE219 /* NotificationObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C7AC1D21904BABE0000D665 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7AC1D11904BABE0000D665 /* QuartzCore.framework */; };
@@ -254,6 +255,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C1F485A19075985008FF3F5 /* GameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfo.h; sourceTree = "<group>"; };
+		4C1F485B19075985008FF3F5 /* GameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfo.m; sourceTree = "<group>"; };
 		4C78108E1905FAF9004FE219 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		4C78108F1905FAF9004FE219 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		4C78109D19065E75004FE219 /* NotificationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationObject.h; sourceTree = "<group>"; };
@@ -1666,6 +1669,8 @@
 		4C7AC4C01904CCAA0000D665 /* Game objects */ = {
 			isa = PBXGroup;
 			children = (
+				4C1F485A19075985008FF3F5 /* GameInfo.h */,
+				4C1F485B19075985008FF3F5 /* GameInfo.m */,
 				4C7AC4C11904CCAA0000D665 /* GameController.h */,
 				4C7AC4C21904CCAA0000D665 /* GameController.m */,
 				4C7AC4C31904CCAA0000D665 /* GameHero.h */,
@@ -1870,6 +1875,7 @@
 				4C78109F19065E75004FE219 /* NotificationObject.m in Sources */,
 				4C7AC39B1904BAC00000D665 /* NSMutableDictionary+WeakReferences.m in Sources */,
 				4C7AC2781904BABF0000D665 /* CCNode+Debug.m in Sources */,
+				4C1F485C19075985008FF3F5 /* GameInfo.m in Sources */,
 				4C7AC2311904BABE0000D665 /* CCAnimation.m in Sources */,
 				4C7AC3DA1904BAC00000D665 /* mat3.c in Sources */,
 				4C7AC2E61904BABF0000D665 /* CCTiledMap.m in Sources */,

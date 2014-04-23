@@ -15,6 +15,11 @@
 #define SCENE_WIDTH 416
 #define SCENE_HEIGHT 288
 
+#define WIN_HEIGHT 320
+
+#define TILE_SCORE 10
+#define ENEMY_SCORE 100
+
 #define NANDU   1
 
 #pragma mark - hero
@@ -35,8 +40,10 @@ extern NSString* const NotifyForGameController;
 
 typedef enum {
     kNotificationMessageTypeUndifine,
-    kNotificationMessageTypeBombDownEffect,
-    kNotificationMessageTypeGameeOver
+    kNotificationMessageTypeBombDown,
+    kNotificationMessageTypeGameeOver,
+    kNotificationMessageTypeDetroyTile,
+    kNotificationMessageTypeDetroyEnemy
 } kNotificationMessageType;
 
 @end

@@ -7,12 +7,21 @@
 //
 
 #import "CCScene.h"
+#import "cocos2d.h"
 
 @class GameHero;
 
-@interface GameController : CCScene
+@interface GameController : CCScene {
+    int score;
+    int level;
+    int time;
+    CCLabelTTF *scoreLabel;
+    CCLabelTTF *levelLabel;
+    CCLabelTTF *timeLabel;
+}
 
 @property (nonatomic, strong) GameHero *hero;
+@property (nonatomic) NSArray *enemyArray;
 
 -(void) gameOver;
 

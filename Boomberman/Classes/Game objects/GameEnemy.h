@@ -10,8 +10,8 @@
 
 typedef enum
 {
-    kEnemyActHorizon,
-    kEnemyActVertical
+    kEnemyActHorizon    = 1,
+    kEnemyActVertical   = 2
     
 }kEnemyAct;
 
@@ -21,6 +21,8 @@ typedef enum
 
 @property(nonatomic, assign) kEnemyAct kAct;
 @property(nonatomic, assign) float fSpeed;
-@property(nonatomic) NSMutableArray *tileArray; 
+@property(nonatomic) NSMutableArray *tileArray;
+
+-(void) enemyKill;
 
 @end

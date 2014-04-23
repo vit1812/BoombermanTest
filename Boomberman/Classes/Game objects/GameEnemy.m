@@ -43,7 +43,7 @@
         CCActionInterval *repeat=[CCActionRepeatForever actionWithAction:actionAnimate];
         [self runAction:repeat];
         
-        self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, self.contentSize} cornerRadius:0]; // 1
+        self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointMake(5, 5), CGSizeMake(self.contentSize.width - 10, self.contentSize.height - 10)} cornerRadius:0]; // 1
         self.physicsBody.collisionGroup = @"enemyGroup"; // 2
         self.physicsBody.collisionType  = @"enemyCollision";
         
@@ -55,6 +55,20 @@
 
 #pragma mark - methods
 
+-(void) removeEnemy
+{
+    [self removeFromParentAndCleanup:YES];
+}
+
+-(void) enemyKill
+{
+    CCActionScaleTo *scale=[CCActionScaleTo actionWithDuration:1 scale:0];
+    CCActionTintTo *tint=[CCActionTintTo actionWithDuration:1 color:[CCColor colorWithRed:255 green:255 blue:255]];
+    [self runAction:tint];
+    CCActionSequence *seq=[CCActionSequence actions:scale,[CCActionCallFunc actionWithTarget:self selector:@selector(removeEnemy)], nil];
+    [self runAction:seq];
+}
+
 -(void) enemyMove
 {
     
@@ -63,6 +77,7 @@
         CCSprite *tile;
         BOOL leftnEnable=NO;
         BOOL rightnEnable=NO;
+        
         if (self.position.x==1.5*TILE_WIDTH)
         {
             leftnEnable=YES;
@@ -71,6 +86,7 @@
         {
             rightnEnable=YES;
         }
+        
         for (int i=0; i<self.tileArray.count; i++)
         {
             tile=[self.tileArray objectAtIndex:i];
@@ -83,6 +99,7 @@
                 rightnEnable=YES;
             }
         }
+        
         if (leftnEnable&&rightnEnable)
         {
             self.kAct=kEnemyActVertical;
@@ -122,6 +139,7 @@
         self.position=ccp(self.position.x+self.fSpeed,self.position.y);
         self.stepCount++;
     }
+    
     if(self.kAct==kEnemyActVertical)
     {
         CCSprite *tile;
@@ -184,7 +202,7 @@
         
         self.position=ccp(self.position.x,self.position.y+self.fSpeed);
         self.stepCount++;
-        NSLog(@"%i",self.stepCount);
+//        NSLog(@"%i",self.stepCount);
     }
     if (self.stepCount>=64/NANDU)
     {

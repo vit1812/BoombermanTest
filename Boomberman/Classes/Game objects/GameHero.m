@@ -44,7 +44,7 @@
     bomb.tileArray  = self.tileArray;
     bomb.hero   = self;
     
-    [self.parent addChild:bomb];
+    [self.parent addChild:bomb z:-1];
     
     [bomb schedule:@selector(bombDown) interval:bomb.fTimer repeat:NO delay:bomb.fTimer];
 }

@@ -64,36 +64,15 @@
             [self.tileArray removeObject:tile];
             
             [tile removeFromParentAndCleanup:NO];
-//            score+=10;
             i--;
-//            scoreLabel.string=[NSString stringWithFormat:@"score: %i",score];
+            
+            NotificationObject *noObject    = [[NotificationObject alloc] initWithType:kNotificationMessageTypeDetroyTile object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotifyForGameController object:noObject];
         }
-//        if (self.tileArray.count==28&&!isKey)//贴图数为28 即砖块数为0-23为石块 24-26为砖块 27 为炸弹
-//        {
-//            key=[CCSprite spriteWithFile:@"yaoshi.png"];
-//            [self addChild:key z:-1];
-//            CCSprite *tile=[tileArray objectAtIndex:arc4random()%3+24];//在三个砖块随机生成一个位置
-//            key.position=tile.position;
-//            isKey=YES;
-//            
-//        }
-        
     }
     
-//    for (int i=0; i<enemyArray.count; i++)
-//    {
-//        GameEnemy *enemy=[enemyArray objectAtIndex:i];
-//        if ((fabs(bomb.position.x-enemy.position.x)<TileWidth||fabs(bomb.position.y-enemy.position.y)<TileHeight)&&ccpDistance(bomb.position, enemy.position)<=TileWidth*2) //如果敌人与炸弹在一条直线上并且距离小于两个单位
-//        {
-//            [enemyArray removeObject:enemy];
-//            [enemy unschedule:@selector(enemyMove)];
-//            [enemy enemyKill];
-//            score+=100;
-//            i--;
-//            scoreLabel.string=[NSString stringWithFormat:@"score: %i",score];
-//            
-//        }
-//    }
+    NotificationObject *noObject    = [[NotificationObject alloc] initWithType:kNotificationMessageTypeBombDown object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotifyForMainScene object:noObject];
     
     if ((fabs(self.position.x-self.hero.position.x)<TILE_WIDTH||fabs(self.position.y-self.hero.position.y)<TILE_HEIGHT)&&ccpDistance(self.position, self.hero.position)<TILE_WIDTH*2)
     {
@@ -119,11 +98,10 @@
     bombEffect.scale=0.333;
     [bombEffect runAction:seq];
     [bombEffect setPosition:self.position];
-//    bombEffect.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, bombEffect.contentSize} cornerRadius:0]; // 1
+//    bombEffect.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, CGSizeMake(5, 5)} cornerRadius:0]; // 1
 //    bombEffect.physicsBody.collisionGroup = @"bombEffectGroup"; // 2
 //    bombEffect.physicsBody.collisionType  = @"bombEffectCollision";
     [self.parent addChild:bombEffect z:-1];
-//    [self.parent addChild:bombEffect];
 }
 
 @end

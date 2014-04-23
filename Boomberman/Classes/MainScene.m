@@ -16,6 +16,8 @@
 #import "GameEnemy.h"
 #import "GameShitou.h"
 #import "GameZhuankuai.h"
+#import "GameBomb.h"
+#import "NotificationObject.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
@@ -24,6 +26,7 @@
 @interface MainScene ()
 
 @property (nonatomic) NSMutableArray *arrTileArray;
+@property (nonatomic) NSMutableArray *arrEnemyArray;
 @property (nonatomic) NSMutableArray *arrNullPointArray;
 @property (nonatomic) GameController *gameController;
 
@@ -36,6 +39,7 @@
 }
 
 @synthesize arrTileArray    = _arrTileArray;
+@synthesize arrEnemyArray   = _arrEnemyArray;
 @synthesize arrNullPointArray   = _arrNullPointArray;
 @synthesize iEnemyNum   = _iEnemyNum;
 @synthesize gameController  = _gameController;
@@ -57,11 +61,14 @@
     self = [super init];
     if (!self) return(nil);
     
-    _iEnemyNum  = 4;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:NotifyForMainScene object:nil];
     
+    _iEnemyNum  = 4;
+
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
     
+    // init background, cache sprite
     CCSpriteFrameCache *frameCache=[CCSpriteFrameCache sharedSpriteFrameCache];
     [frameCache addSpriteFramesWithFile:@"img.plist"];
     
@@ -77,6 +84,7 @@
     _physicsWorld = [CCPhysicsNode node];
     _physicsWorld.gravity = ccp(0,0);
     _physicsWorld.collisionDelegate = self;
+    _physicsWorld.debugDraw = NO;
     [self addChild:_physicsWorld];
     
     // Shitou
@@ -135,7 +143,10 @@
         [_physicsWorld addChild:enemy];
         
         [self.arrNullPointArray removeObject:point];
+        [self.arrEnemyArray addObject:enemy];
     }
+    
+    self.gameController.enemyArray  = self.arrEnemyArray;
     
     // done
 	return self;
@@ -145,12 +156,20 @@
 
 - (void)dealloc
 {
-    // clean up code goes here
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotifyForMainScene object:nil];
 }
 
 // -----------------------------------------------------------------------
 #pragma mark - Properties
 // -----------------------------------------------------------------------
+
+- (NSMutableArray *)arrEnemyArray {
+    if (_arrEnemyArray == nil) {
+        _arrEnemyArray   = [NSMutableArray array];
+    }
+    
+    return _arrEnemyArray;
+}
 
 - (NSMutableArray *)arrTileArray {
     if (_arrTileArray == nil) {
@@ -200,17 +219,50 @@
 }
 
 // -----------------------------------------------------------------------
-#pragma mark - Button Callbacks
-// -----------------------------------------------------------------------
 
-- (void)onBackClicked:(id)sender
-{
-    // back to intro scene with transition
-    [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:1.0f]];
+#pragma mark - notify handler
+
+- (void)handleWhenBombDown:(GameBomb *)bomb {
+    for (int i=0; i<self.arrEnemyArray.count; i++)
+    {
+        GameEnemy *enemy=[self.arrEnemyArray objectAtIndex:i];
+        if ((fabs(bomb.position.x-enemy.position.x)<TILE_WIDTH||fabs(bomb.position.y-enemy.position.y)<TILE_HEIGHT)&&ccpDistance(bomb.position, enemy.position)<=TILE_WIDTH*2)
+        {
+            [self.arrEnemyArray removeObject:enemy];
+            [enemy unschedule:@selector(enemyMove)];
+            [enemy enemyKill];
+            i--;
+            
+            NotificationObject *noObject    = [[NotificationObject alloc] initWithType:kNotificationMessageTypeDetroyEnemy object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotifyForGameController object:noObject];
+        }
+    }
 }
 
-// -----------------------------------------------------------------------
+- (void)receiveNotification:(NSNotification *)notification {
+    id obj = [notification object];
+    
+    if ([obj isKindOfClass:[NotificationObject class]]) {
+        NotificationObject *notifyObject = (NotificationObject *)obj;
+        
+        switch (notifyObject.notificationType) {
+            case kNotificationMessageTypeBombDown: {
+                GameBomb *bomb  = (GameBomb *)notifyObject.notificationObject;
+                
+                [self handleWhenBombDown:bomb];
+                
+                break;
+            }
+                
+            default:
+                break;
+        }
+    }
+    
+    // reset observer (tranh duplicate notify)
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotifyForMainScene object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:NotifyForMainScene object:nil];
+}
 
 #pragma mark - Collision handler
 
