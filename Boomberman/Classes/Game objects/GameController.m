@@ -225,32 +225,69 @@
 
 #pragma mark - touch handler
 
--(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint location=[touch locationInView:touch.view];
-    location = [[CCDirector sharedDirector] convertToGL: location];
-    CGPoint touchpos=[Utils convertToTilePos:location];
+float getDirectionByTouch(CGPoint startingPoint, CGPoint endingPoint)
+{
+    CGPoint originPoint = CGPointMake(endingPoint.x - startingPoint.x, endingPoint.y - startingPoint.y);
+    float bearingRadians = atan2f(originPoint.y, originPoint.x);
     
-    if (touchpos.x==0.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
-    {
-        self.hero.kAct  = kHeroActLeft;
+    if (bearingRadians > -0.78 && bearingRadians < 0.78) {
+        return kHeroActRight;
     }
-    if (touchpos.x==2.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
-    {
-        self.hero.kAct  = kHeroActRight;
+    else if (bearingRadians > 0.78 && bearingRadians < 2.34) {
+        return kHeroActUp;
     }
-    if (touchpos.x==1.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
-    {
-        self.hero.kAct  = kHeroActDown;
+    else if (bearingRadians > 2.34 || bearingRadians < -2.34) {
+        return kHeroActLeft;
     }
-    if (touchpos.x==1.5*TILE_WIDTH&&touchpos.y==1.5*TILE_HEIGHT)
+    else
     {
-        self.hero.kAct  = kHeroActUp;
+        return kHeroActDown;
     }
+}
+
+// touch direction
+
+-(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint location = [touch locationInView:touch.view];
+    location = [[CCDirector sharedDirector] convertToGL: location];
+    CGPoint touchpos= [Utils convertToTilePos:location];
+    
+    self.hero.kAct = getDirectionByTouch(self.hero.position,touchpos);
+    
     if (touchpos.x==14.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
     {
         self.hero.kAct  = kHeroActFire;
     }
 }
+
+// arrow direction
+
+//-(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+//    CGPoint location=[touch locationInView:touch.view];
+//    location = [[CCDirector sharedDirector] convertToGL: location];
+//    CGPoint touchpos=[Utils convertToTilePos:location];
+//    
+//    if (touchpos.x==0.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
+//    {
+//        self.hero.kAct  = kHeroActLeft;
+//    }
+//    if (touchpos.x==2.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
+//    {
+//        self.hero.kAct  = kHeroActRight;
+//    }
+//    if (touchpos.x==1.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
+//    {
+//        self.hero.kAct  = kHeroActDown;
+//    }
+//    if (touchpos.x==1.5*TILE_WIDTH&&touchpos.y==1.5*TILE_HEIGHT)
+//    {
+//        self.hero.kAct  = kHeroActUp;
+//    }
+//    if (touchpos.x==14.5*TILE_WIDTH&&touchpos.y==0.5*TILE_HEIGHT)
+//    {
+//        self.hero.kAct  = kHeroActFire;
+//    }
+//}
 
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     self.hero.kAct  = kHeroActStay;
